@@ -116,9 +116,8 @@ if __name__ == '__main__':
     bot = commands.Bot(command_prefix='!', intents=intents)
 
     rank_emoji_map = {
-        "newbie": ":small_red_triangle_down:",  # Replace with actual emoji ID
+        "newbie": ":small_red_triangle_down:",
         "master": "<:master_emoji:9876543210>",
-        # ... add more rank-emoji mappings
     }
 
     @bot.event
@@ -131,53 +130,6 @@ if __name__ == '__main__':
         if message.author == bot.user:
             return
         await bot.process_commands(message)
-        # if message.content == '!cal':
-        #   upcoming_contests = get_upcoming_contests()
-        #   # Create buttons for upcoming contests
-
-        #   # await message.channel.send("Upcoming Contests:", components=[action_row])
-        #   division_filter = []
-        #   for contest in upcoming_contests:
-        #     if 'Div. 2' in contest['name'] or 'Div. 3' in contest['name']:
-        #       division_filter.append(contest)
-
-        #   if len(division_filter) == 0:
-        #     await message.channel.send('No contests found')
-        #   else:
-        #     await message.channel.send(f'{division_filter} Here is your Calander!')
-        # if message.content == '!hello':
-        #     await message.channel.send(f'Hi {message.author}')
-        # if message.content == '!bye':
-        #     await message.channel.send(f'Goodbye {message.author}')
-
-    # @bot.command(name='rating')
-    # async def rating(ctx, message):
-    #   user_handle = message
-    #   api_response = requests.get(f"https://codeforces.com/api/user.info?handles={user_handle}")
-    #   data = api_response.json()
-
-    #   print(data)
-
-    #   if data['status'] == 'OK':
-    #     user_info = data['result'][0]
-    #     handle = user_info['handle']
-    #     rating = user_info['rating']
-    #     rank = user_info['rank']
-    #     print(f"Handle: {handle}, Rating: {rating}, Rank: {rank}")
-    #     table_string = "**Codeforces User Rating**\n`markdown\n| Field | Value | \n|---|:---|\n| **Username** | {} | \n| **Rating** | {} | \n| **Rank** | {} | \n| **Max Rating** | {} |\n| **Max Rank** | {} | \n`".format(
-    #       user_info["handle"],
-    #       user_info["rating"],
-    #       user_info["rank"],
-    #       user_info["maxRating"],
-    #       user_info["maxRank"]
-    #     )
-    #     # Store the table string in the context
-    #     ctx.bot.context_table = table_string
-    #     # Send a response indicating availability of context
-    #     await ctx.send(table_string)
-    #   else:
-    #     # Handle the case where data['status'] is not 'OK'
-    #     await ctx.send("Failed to fetch user rating information.")
 
     @bot.command(name='rating')
     async def rating(ctx, message):
@@ -199,7 +151,7 @@ if __name__ == '__main__':
         rank_emoji = rank_emoji_map.get(
             user_data["rank"], "<:default_emoji:0000000000>")
         # Set user avatar (optional)
-        embed.set_thumbnail(url="https://example.com/user_avatar.png")
+        embed.set_thumbnail(url="https://pngtree.com/freepng/vector-link-icon_3785569.html")
         embed.add_field(name="Username",
                         value=user_data["handle"], inline=True)
         embed.add_field(name="Rating", value=user_data["rating"], inline=False)
